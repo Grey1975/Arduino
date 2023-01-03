@@ -20,10 +20,34 @@ void setup() {
 }
 
 void loop() {
+  // read sensor values
   redSnsVal = analogRead(redSns);
   delay(5);
   grnSnsVal = analogRead(grnSns);
   delay(5);
   bluSnsVal = analogRead(bluSns);
-  delay(5);
+
+  // log raw sensor input to terminal
+  Serial.print("Raw Sensor Values \t red: ");
+  Serial.print(redSnsVal);
+  Serial.print("\t green: ");
+  Serial.print(grnSnsVal);
+  Serial.print("\t blue: ");
+  Serial.println(bluSnsVal);
+
+  // adjusted values
+  red = redSnsVal / 4;
+  grn = grnSnsVal / 4;
+  blu = bluSnsVal / 4;
+
+  Serial.print("Mapped Sensor Values \t red: ");
+  Serial.print(red);
+  Serial.print("\t green: ");
+  Serial.print(grn);
+  Serial.print("\t blue: ");
+  Serial.println(blu);
+
+  analogWrite(redLEd, red);
+  analogWrite(grnLED, grn);
+  analogWrite(bluLED, blu);
 }
