@@ -47,7 +47,7 @@ void loop() {
   Serial.print("\t blue: ");
   Serial.println(blu);
 
-  analogWrite(redLEd, red);
+  analogWrite(redLED, red);
   analogWrite(grnLED, grn);
   analogWrite(bluLED, blu);
 }
